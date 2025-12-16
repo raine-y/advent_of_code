@@ -16,11 +16,11 @@ public class dayTwo {
             while (scanner.hasNextLine()) {
                 String[] array = scanner.nextLine().split(",");
                 for (int i = 0; i < array.length; i++) {
-                    String[] id = array[i].split("-");
-                    long start = Long.parseLong(id[0].trim());
-                    long end = Long.parseLong(id[1].trim());
-                    for (long s = start; s<= end; s++) {
-                        
+                    String[] range = array[i].split("-");
+                    long start = Long.parseLong(range[0].trim());
+                    long end = Long.parseLong(range[1].trim());
+                    for (long id = start; id <= end; id++) {
+
                     }
                 }
             }
