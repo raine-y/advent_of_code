@@ -5,27 +5,34 @@ import java.util.Scanner;
 public class dayOne {
     public static void main(String[] args) {
         File input = new File("../input.txt");
+        dayOne dayOne = new dayOne();
 
+        System.out.println("Part One Count: " + dayOne.partOne(input));
+    }
+
+    public int partOne(File input) {
         int position = 50;
         int count = 0;
 
-        try (Scanner myReader = new Scanner(input)) {
-            while (myReader.hasNextLine()) {
-
-                String line = myReader.nextLine();
-
+        try (Scanner scanner = new Scanner(input)) {
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
                 int step = Integer.parseInt(line.replaceAll("[\\D]", ""));
 
                 if (line.startsWith("R")) {
-                    position += step;
+                    for (int i = 0; i < step; i++) {
+                        position = (((position + 1) % 100) + 100) % 100;
+                        if (position == 0)
+                            count++;
+                    }
                 }
-                if (line.startsWith("L")) {
-                    position -= step;
-                }
-                position %= 100;
 
-                if (position == 0) {
-                    count++;
+                if (line.startsWith("L")) {
+                    for (int i = 0; i < step; i++) {
+                        position = (((position - 1) % 100) + 100) % 100;
+                        if (position == 0)
+                            count++;
+                    }
                 }
 
             }
@@ -34,8 +41,7 @@ public class dayOne {
             e.printStackTrace();
         }
 
-        System.out.println("Final position: " + position);
-        System.out.println("Number of times position was zero: " + count);
+        return count;
 
     }
 }
