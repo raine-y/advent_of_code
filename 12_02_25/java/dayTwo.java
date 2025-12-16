@@ -19,8 +19,8 @@ public class dayTwo {
                     String[] id = array[i].split("-");
                     long start = Long.parseLong(id[0].trim());
                     long end = Long.parseLong(id[1].trim());
-                    for (long s = start; i<= end; i++) {
-
+                    for (long s = start; s<= end; s++) {
+                        
                     }
                 }
             }
