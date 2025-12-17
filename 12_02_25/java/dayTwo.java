@@ -9,7 +9,7 @@ public class dayTwo {
     }
 
     public static void invalidSum(String[] array) {
-        int sum = 0;
+        long sum = 0;
         for (int i = 0; i < array.length; i++) {
             String[] range = array[i].split("-");
             long start = Long.parseLong(range[0].trim());
@@ -23,12 +23,17 @@ public class dayTwo {
         System.out.println("Invalid ID sum: " + sum);
     }
 
-    private static int invalidCheck(long id) {
+    private static long invalidCheck(long id) {
         String idString = String.valueOf(id);
         int length = idString.length();
         int mid = length / 2;
         String firstHalf = idString.substring(0, mid);
         String secondHalf = idString.substring(length - mid);
+        if (firstHalf.equals(secondHalf)) {
+            return Long.parseLong(idString);
+        } else {
+            return 0;
+        }
     }
 
     private static String[] readInput(File input) {
