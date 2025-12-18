@@ -6,7 +6,7 @@ public class dayTwo {
         File input = new File("../input.txt");
         String[] ranges = readInput(input);
         invalidSum(ranges);
-    }
+    } 
 
     public static void invalidSum(String[] array) {
         long sum = 0;
@@ -17,7 +17,7 @@ public class dayTwo {
             for (long id = start; id <= end; id++) {
                 if (Long.toString(id).length() % 2 == 0) {
                     sum += invalidCheck(id);
-                }
+                } 
             }
         }
         System.out.println("Invalid ID sum: " + sum);
@@ -31,10 +31,12 @@ public class dayTwo {
         String secondHalf = idString.substring(length - mid);
         if (firstHalf.equals(secondHalf)) {
             return Long.parseLong(idString);
-        } else {
+        } 
+        else {
             return 0;
-        }
+        }        
     }
+
 
     private static String[] readInput(File input) {
         try (Scanner scanner = new Scanner(input)) {
